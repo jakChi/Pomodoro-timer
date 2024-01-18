@@ -1,42 +1,144 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  --app-color: #353535;
+  --font-color: #06d6a0;
+  --prim-col: #9e0059;
+  --sec-col: #fbff12;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--app-color);
+}
+
+.app {
+  margin: auto;
+  width: 100%;
+  max-width: 1000px;
+  height: 100vh;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--app-color);
+  color: var(--font-color);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#title {
+  margin: 2em auto;
+  padding: 0.5em;
+  width: 50%;
+  border-bottom: 2px solid var(--prim-col);
 }
 
-@keyframes logo-spin {
+#timer-box {
+  width: 18em;
+  height: 18em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid var(--prim-col);
+  border-radius: 50%;
+}
+
+.active-tick {
+  animation-name: glow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes glow {
   from {
-    transform: rotate(0deg);
+    box-shadow: 0 0 0 0 var(--prim-col);
   }
   to {
-    transform: rotate(360deg);
+    box-shadow: 0 0 50px 3px var(--prim-col);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#time-left {
+  font-size: 4em;
+  margin: 0.2em;
 }
 
-.card {
-  padding: 2em;
+#ctrl-btns {
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.read-the-docs {
-  color: #888;
+#ctrl-btns button {
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 25px;
+  background-color: var(--sec-col);
+  border: 2px solid var(--sec-col);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+#ctrl-btns button:hover {
+  background-color: transparent;
+  color: var(--sec-col);
+}
+
+#ctrl-btns button:active {
+  transform: scale(0.95);
+}
+
+#length-control {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.length-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 10em;
+  height: 10em;
+  border: 1px solid var(--sec-col);
+  border-radius: 50%;
+  transition: all 400ms ease;
+  transition-delay: 200ms;
+}
+
+.length-div:hover {
+  box-shadow: 0 0 20px 3px var(--sec-col);
+  transition-delay: 0ms;
+}
+
+.length-div h2 {
+  position: absolute;
+  bottom: -1.5em;
+}
+
+.length-div h3 {
+  font-size: 3em;
+}
+
+.length-div button {
+  width: 2em;
+  height: 2em;
+  font-size: 25px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.length-div button:hover {
+  color: var(--prim-col);
+}
+
+.length-div button:active {
+  transform: scale(0.95);
 }
