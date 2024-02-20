@@ -2,7 +2,7 @@
   --app-color: #353535;
   --font-color: #06d6a0;
   --prim-col: #9e0059;
-  --sec-col: #fbff12;
+  --sec-col: #023047;
 }
 
 * {
@@ -19,7 +19,7 @@ body {
   margin: auto;
   width: 100%;
   max-width: 1000px;
-  height: 100vh;
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -28,16 +28,19 @@ body {
 }
 
 #title {
-  margin: 2em auto;
+  margin: 1em auto;
   padding: 0.5em;
   width: 50%;
-  border-bottom: 2px solid var(--prim-col);
+  font-size: 3em;
+  font-family: monospace;
+  letter-spacing: 5px;
+  font-style: italic;
 }
 
 #timer-box {
   width: 18em;
   height: 18em;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,7 +61,7 @@ body {
     box-shadow: 0 0 0 0 var(--prim-col);
   }
   to {
-    box-shadow: 0 0 50px 3px var(--prim-col);
+    box-shadow: 0 0 100px 3px var(--prim-col);
   }
 }
 
@@ -68,25 +71,24 @@ body {
 }
 
 #ctrl-btns {
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 #ctrl-btns button {
-  width: 1.5em;
-  height: 1.5em;
-  font-size: 25px;
-  background-color: var(--sec-col);
-  border: 2px solid var(--sec-col);
-  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  padding: 0.4em;
+  font-size: 2em;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   transition: all 200ms ease;
 }
 
 #ctrl-btns button:hover {
-  background-color: transparent;
-  color: var(--sec-col);
+  color: var(--prim-col);
 }
 
 #ctrl-btns button:active {
@@ -105,15 +107,13 @@ body {
   align-items: center;
   width: 10em;
   height: 10em;
-  border: 1px solid var(--sec-col);
+  background-color: var(--sec-col);
   border-radius: 50%;
-  transition: all 400ms ease;
-  transition-delay: 200ms;
+  transition: all 500ms ease;
 }
 
-.length-div:hover {
-  box-shadow: 0 0 20px 3px var(--sec-col);
-  transition-delay: 0ms;
+.length-div.active {
+  box-shadow: 0 0 60px 1px var(--font-color);
 }
 
 .length-div h2 {
@@ -140,5 +140,5 @@ body {
 }
 
 .length-div button:active {
-  transform: scale(0.95);
+  transform: scale(0.9);
 }
