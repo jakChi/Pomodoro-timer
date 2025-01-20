@@ -8,6 +8,7 @@ const App = () => {
   const [isTicking, setIsTicking] = useState(false); //weather timer is on or off
   const [activeCount, setActiveCount] = useState(0); // active sessions count
   const [time, setTime] = useState(25 * 60); //total time as seconds
+  const [sesName, setSesName] = useState("click here to edit");
 
   const timeRef = useRef(); // reference of time, idk exactly how it works
   const minutes = Math.floor(time / 60); // minutes are total time divided by 60
@@ -79,7 +80,15 @@ const App = () => {
   return (
     <>
       <div className="app">
-        <h1 id="title">pomodoro🍅</h1>
+        <input
+          id="title"
+          value={sesName}
+          onChange={(e) => setSesName(e.target.value)}
+          onClick={() =>
+            sesName === "click here to edit" ? setSesName("") : null
+          }
+          // how can i return placeholder text if nothing is written
+        />
         <div id="timer-box" className={isTicking ? "active-tick" : null}>
           <h2 id="timer-label">{session ? "Session" : "Break"}</h2>
           <h1 id="time-left">
